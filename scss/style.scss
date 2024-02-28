@@ -132,10 +132,12 @@ a {
 
     .menu {
         padding: 30px;
+        align-content: center;
     }
 
     .menu label {
         display: initial;
+        align-content: center;
     }
 
     .back {
@@ -149,6 +151,9 @@ a {
         right: 0;
         background-color: #2a394f;
         display: none;
+        align-content: center;
+        
+
     }
 
     .menu .navbar ul li {
@@ -157,6 +162,8 @@ a {
 
     #menu:checked~.navbar {
         display: initial;
+        align-content: center;
+
     }
 }
 
@@ -261,8 +268,9 @@ main {
 
 .tarjetaNuevos {
     width: 300;
-    height: 200;
+    height: 200; 
     flex: 50;
+    align-content: center;
     display: inline-flex;
     flex-direction: column;
     background-color: #bbb8e423;
@@ -278,12 +286,14 @@ main {
         flex-shrink: 1;
     }
 
-    .botonTarjNuevos {
-        background-color: rgb(14, 1, 107);
+    .botonTarjNuevos { background-color: rgb(14, 1, 107);
         padding: 1px;
     }
 }
-
+.foto0km{
+    width: auto 50rem;
+    height: auto;
+}
 
 .tituloUsados {
     color: white;
@@ -295,8 +305,9 @@ main {
 
 .tarjetaUsados {
     width: 300;
-    height: 200;
+    height: 200; 
     flex: 50;
+    align-content: center;
     display: inline-flex;
     flex-direction: column;
     background-color: #bbb8e423;
@@ -403,6 +414,7 @@ a {
 
 h1 {
     text-align: center;
+    color: #000000;
 }
 
 main table {

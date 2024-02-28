@@ -105,7 +105,9 @@ header .textos-header p {
 }
 
 nav {
-  text-align: right;
+  position: relative;
+  align-content: center;
+  text-align: center;
   padding: 30px 50px 0 0;
 }
 
@@ -120,10 +122,25 @@ nav a {
   /*mas ligera*/
   text-decoration: none;
   margin-right: 10px;
+  columns: auto;
 }
 
 nav a:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 700px) {
+  header {
+    flex-direction: column;
+  }
+  nav {
+    padding: 10px 0px;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .contenedor {
@@ -143,13 +160,16 @@ a {
   display: flex;
   justify-content: space-evenly;
 }
+
 .contenedor-sobre-nosotros .imagen-about-us {
   width: 80%;
   max-width: 40rem;
 }
+
 .contenedor-sobre-nosotros .contenido-textos {
   width: 80%;
 }
+
 .contenedor-sobre-nosotros .contenido-textos p {
   margin-bottom: 15px;
 }
@@ -214,6 +234,46 @@ a {
   display: none;
 }
 
+@media (max-width: 991px) {
+  .contenedor-sobre-nosotros {
+    display: block;
+    text-align: center;
+  }
+  .contenido-textos {
+    text-align: center;
+    margin: 0 auto;
+  }
+  .contenido-textos p {
+    width: 100%;
+  }
+  .menu {
+    padding: 30px;
+    align-content: center;
+  }
+  .menu label {
+    display: initial;
+    align-content: center;
+  }
+  .back {
+    padding: 40px 0;
+  }
+  .menu .navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #2a394f;
+    display: none;
+    align-content: center;
+  }
+  .menu .navbar ul li {
+    width: 100%;
+  }
+  #menu:checked ~ .navbar {
+    display: initial;
+    align-content: center;
+  }
+}
 main {
   background-color: rgba(255, 255, 255, 0);
 }
@@ -249,32 +309,29 @@ main {
   text-align: center;
   position: inherit;
   color: #090000;
-  margin-bottom: 3rem;
 }
 
-.taller {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  margin: 0 auto;
+#taller {
+  display: flex;
+  justify-content: space-around;
 }
-
-.taller .tarjteServicio {
+#taller .tarjteServicio {
   flex: 50%;
-  margin: 1rem auto;
   display: flex;
   flex-direction: column;
   background-color: rgba(14, 6, 166, 0.7254901961);
   border: 0px solid #0d0000;
   border-radius: 8px;
   text-align: center;
+  margin: 16px;
   max-width: 300px;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
-.taller .tarjteServicio .contenidoTarjeta {
+#taller .tarjteServicio .contenidoTarjeta {
   flex-grow: 1;
   flex-shrink: 1;
 }
-.taller .tarjteServicio .botonTarjeta {
+#taller .tarjteServicio .botonTarjeta {
   background-color: rgba(9, 1, 71, 0.51);
   padding: 10px;
 }
@@ -301,6 +358,7 @@ main {
   width: 300;
   height: 200;
   flex: 50;
+  align-content: center;
   display: inline-flex;
   flex-direction: column;
   background-color: rgba(187, 184, 228, 0.137254902);
@@ -320,6 +378,11 @@ main {
   padding: 1px;
 }
 
+.foto0km {
+  width: auto 50rem;
+  height: auto;
+}
+
 .tituloUsados {
   color: white;
 }
@@ -331,6 +394,7 @@ main {
   width: 300;
   height: 200;
   flex: 50;
+  align-content: center;
   display: inline-flex;
   flex-direction: column;
   background-color: rgba(187, 184, 228, 0.137254902);
@@ -415,6 +479,7 @@ a {
 
 h1 {
   text-align: center;
+  color: #000000;
 }
 
 main table {
@@ -438,61 +503,3 @@ td {
 }
 
 /*# sourceMappingURL=style.css.map */
-
-@media (max-width: 991px) {
-  .contenedor-sobre-nosotros {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-  }
-  .contenido-textos {
-    text-align: center;
-    margin: 0 auto;
-  }
-  .contenido-textos p {
-    width: 100%;
-  }
-
-  .taller {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    margin: 0 auto;
-  }
-  
-  .taller .tarjteServicio {
-    flex: 50%;
-    margin: 1rem auto;
-    display: flex;
-    flex-direction: column;
-    background-color: rgba(14, 6, 166, 0.7254901961);
-    border: 0px solid #0d0000;
-    border-radius: 8px;
-    text-align: center;
-    max-width: 300px;
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-  }
-
-  .menu {
-    padding: 30px;
-  }
-  .menu label {
-    display: initial;
-  }
-  .back {
-    padding: 40px 0;
-  }
-  .menu .navbar {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background-color: #2a394f;
-    display: none;
-  }
-  .menu .navbar ul li {
-    width: 100%;
-  }
-  #menu:checked ~ .navbar {
-    display: initial;
-  }
-}
