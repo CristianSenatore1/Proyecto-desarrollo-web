@@ -88,7 +88,18 @@ nav a:hover {
         flex-direction: column;
     }
 
+    main {
+        flex-direction: column;
+        align-items: center;
+
+    }
     nav {
         padding: 10px 0px;
     }
+    
+    taller{
+        align-items: center;
+        flex-direction: column;
+    }
+    
 }

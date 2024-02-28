@@ -152,7 +152,7 @@ a {
         background-color: #2a394f;
         display: none;
         align-content: center;
-        
+
 
     }
 
@@ -211,33 +211,35 @@ main {
 
 }
 
-#taller {
+taller {
     display: flex;
     justify-content: space-around;
+}
 
-    .tarjteServicio {
-        flex: 50%;
-        display: flex;
-        flex-direction: column;
-        background-color: #0e06a6b9;
-        border: 0px solid #0d0000;
-        border-radius: 8px;
-        text-align: center;
-        margin: 16px;
-        max-width: 300px;
-        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+.tarjteServicio {
+    width: 300;
+    height: 200;
+    flex: 50;
+    align-content: center;
+    display: inline-flex;
+    flex-direction: column;
+    background-color: #bbb8e423;
+    border: 0px solid #0d0000;
+    border-radius: 8px;
+    text-align: center;
+    margin: 15px;
+    max-width: 300px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
 
-        .contenidoTarjeta {
-            flex-grow: 1;
-            flex-shrink: 1;
-        }
+.contenidoTarjeta {
+    flex-grow: 1;
+    flex-shrink: 1;
+}
 
-        .botonTarjeta {
-            background-color: rgba(9, 1, 71, 0.51);
-            padding: 10px;
-        }
-    }
-
+.botonTarjeta {
+    background-color: rgba(9, 1, 71, 0.51);
+    padding: 10px;
 }
 
 
@@ -268,7 +270,7 @@ main {
 
 .tarjetaNuevos {
     width: 300;
-    height: 200; 
+    height: 200;
     flex: 50;
     align-content: center;
     display: inline-flex;
@@ -286,11 +288,13 @@ main {
         flex-shrink: 1;
     }
 
-    .botonTarjNuevos { background-color: rgb(14, 1, 107);
+    .botonTarjNuevos {
+        background-color: rgb(14, 1, 107);
         padding: 1px;
     }
 }
-.foto0km{
+
+.foto0km {
     width: auto 50rem;
     height: auto;
 }
@@ -305,7 +309,7 @@ main {
 
 .tarjetaUsados {
     width: 300;
-    height: 200; 
+    height: 200;
     flex: 50;
     align-content: center;
     display: inline-flex;
