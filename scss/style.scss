@@ -3,12 +3,20 @@
 @import 'header';
 @import 'mixins';
 
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+.row {
+    --bs-gutter-x: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
 
 .contenedor {
     padding: 60px 0;
@@ -23,26 +31,56 @@ a {
     color: rgb(255, 255, 255);
 }
 
-
 .contenedor-sobre-nosotros {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; 
+    gap: 20px; 
 }
 
 .contenedor-sobre-nosotros .imagen-about-us {
-    width: 80%;
-    max-width: 40rem;
+    flex: 1 1 40%; 
+    max-width: 40%; 
+    img {
+        width: 100%; 
+        height: auto; 
+    }
 }
 
 .contenedor-sobre-nosotros .contenido-textos {
-    width: 80%;
+    flex: 1 1 50%;
+    max-width: 50%; 
+    text-align: justify;
 }
 
 .contenedor-sobre-nosotros .contenido-textos p {
     margin-bottom: 15px;
 }
 
+.titulo {
+    text-align: center;
+    color: #090000;
+    margin-bottom: 30px;
+}
 
+@media (max-width: 991px) {
+    .contenedor-sobre-nosotros {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contenedor-sobre-nosotros .imagen-about-us,
+    .contenedor-sobre-nosotros .contenido-textos {
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+main {
+    background-color: rgba(255, 255, 255, 0);
+}
 
 .service-html {
     background-color: #a7b1b3;
@@ -67,7 +105,6 @@ a {
             height: 100%;
             object-fit: cover;
             display: block;
-
         }
 
         .hover-galeria {
@@ -98,10 +135,6 @@ a {
     transform: scale(1);
 }
 
-
-
-
-
 #menu {
     display: inline-block;
 }
@@ -117,7 +150,7 @@ a {
 
 @media (max-width: 991px) {
     .contenedor-sobre-nosotros {
-        display: block;
+        flex-direction: column; 
         text-align: center;
     }
 
@@ -152,8 +185,6 @@ a {
         background-color: #2a394f;
         display: none;
         align-content: center;
-
-
     }
 
     .menu .navbar ul li {
@@ -163,14 +194,11 @@ a {
     #menu:checked~.navbar {
         display: initial;
         align-content: center;
-
     }
 }
 
-
 main {
     background-color: rgba(255, 255, 255, 0);
-
 }
 
 #portada {
@@ -180,266 +208,287 @@ main {
 
 #historia {
     color: #ffffff;
-
     text-align: center;
 }
 
 .col-md-6 {
     color: #fbfafa;
-
     text-align: center;
 }
 
 .col-md-7 {
     color: #fbfafa;
-
     text-align: center;
 }
 
 .box1 {
     color: #ffffff;
-
     border-top: 100;
     background-color: $colorPrincipal;
     border-left: 1cm;
 }
 
-.titulo {
-    text-align: center;
-    position: inherit;
-    color: #090000;
-
-}
-
-taller {
+.taller {
     display: flex;
     justify-content: space-around;
 }
 
 .tarjteServicio {
-    width: 300;
-    height: 200;
-    flex: 50;
-    align-content: center;
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+    align-content: center;
     background-color: #bbb8e423;
     border: 0px solid #0d0000;
     border-radius: 8px;
     text-align: center;
-    margin: 15px;
-    max-width: 300px;
+    margin: 15px 0; 
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    
+    img {
+        width: 100%;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        object-fit: cover;
+    }
+
+    .contenidoTarjeta {
+        padding: 15px;
+    }
+
+    .botonTarjeta {
+        padding: 10px;
+    }
 }
 
-.contenidoTarjeta {
-    flex-grow: 1;
-    flex-shrink: 1;
+@media (max-width: 991px) {
+    .row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+.contactanos {
+    text-align: center; 
+    margin-bottom: 20px; 
 }
 
-.botonTarjeta {
-    background-color: rgba(9, 1, 71, 0.51);
-    padding: 10px;
+.contacto {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    max-width: 600px; 
+    margin: auto;
+}
+
+.contacto label,
+.contacto input,
+.contacto select {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+input[type="checkbox"] {
+    margin-right: 5px; 
+}
+
+.contacto input,
+.contacto select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #3b35f4;
+    border-radius: 4px;
+}
+
+.contacto button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    display: block;
+    margin: 20px auto;
+}
+
+
+.footerSection {
+    background-color: #333;
+    color: white;
+    padding: 2em 0;
+    text-align: center;
+}
+
+.footer-contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.footer-links h4 {
+    margin-bottom: 1em;
+}
+
+.footer-links p, .footer-links a {
+    margin: 0.5em 0;
+    color: white;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.mapaUbicacion iframe {
+    width: 100%;
+    height: 300px;
+    border: none;
+    border-radius: 10px;
 }
 
 
 #noticias {
-    h2 {
-        text-align: center;
-    }
-
-    .box {
-        margin-top: 50px;
-        display: flex;
-        flex-direction: row;
-        color: #000000;
-        background-color: #2e2e7fb9;
-
-        .imagenBox {
-            .imagenNoticias1 {
-                width: 100%
-            }
-        }
-    }
-
+    padding: 2em 0;
 }
 
-.tituloNuevos {
-    color: white;
+#noticias .box {
+    display: flex;
+    gap: 1em;
+    margin-bottom: 2em;
 }
 
-.tarjetaNuevos {
-    width: 300;
-    height: 200;
-    flex: 50;
-    align-content: center;
-    display: inline-flex;
-    flex-direction: column;
-    background-color: #bbb8e423;
-    border: 0px solid #0d0000;
-    border-radius: 8px;
-    text-align: center;
-    margin: 15px;
-    max-width: 300px;
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-
-    .contenidoTarjNuevos {
-        flex-grow: 1;
-        flex-shrink: 1;
-    }
-
-    .botonTarjNuevos {
-        background-color: rgb(14, 1, 107);
-        padding: 1px;
-    }
-}
-
-.foto0km {
-    width: auto 50rem;
+#noticias .imagenBox img {
+    max-width: 100%;
     height: auto;
+    border-radius: 10px;
 }
 
-.tituloUsados {
-    color: white;
-
-    h2 {
-        color: black;
-    }
+#noticias .detailBox h5 {
+    margin: 0 0 1em;
 }
 
-.tarjetaUsados {
-    width: 300;
-    height: 200;
-    flex: 50;
-    align-content: center;
-    display: inline-flex;
-    flex-direction: column;
-    background-color: #bbb8e423;
-    border: 0px solid #0d0000;
-    border-radius: 8px;
-    text-align: center;
-    margin: 15px;
-    max-width: 300px;
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-
-    .contenidoTarjUsados {
-        flex-grow: 1;
-        flex-shrink: 1;
-    }
-
-    .botonTarjUsados {
-        background-color: rgb(14, 1, 107);
-        padding: 1px;
-    }
+#noticias .detailBox p {
+    text-align: justify;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.titulo-administracion {
-    color: rgb(0, 0, 0);
-    text-align: center;
-}
-
-.contenidoAdministracion {
-    color: rgb(0, 0, 0);
-    text-align: center;
-}
-
-.linkAdministracion {
-    text-align: center;
-    text-decoration-line: underline;
-    background-color: #09017cbf;
-    border: 0px solid #f61b1b;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 30;
-}
-
-.contactanos {
-    text-align: center;
-}
-
-.contacto {
-    width: 300;
-    flex: 50;
-    display: flex;
-    flex-direction: column;
-    color: rgb(12, 12, 12);
-    border: 0px solid #0d0000;
-    border-radius: 8px;
-
-    text-align: center;
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-
-}
-
-.imagen1Service {
-    width: 100%;
-}
-
-.tituloUsados {
-    text-align: center;
-    color: white;
-}
-
-.c {
-    background-color: rgb(0, 0, 0);
-    justify-content: center;
-    display: flex;
-    margin: 30px;
-}
-
-
-ul,
-ol {
-    list-style-type: none;
-}
-
-a {
-    color: rgb(255, 255, 255);
+#noticias .detailBox a {
+    color: #0056b3;
     text-decoration: none;
 }
 
-h1 {
-    text-align: center;
-    color: #000000;
-}
-
-main table {
-
-    align-items: center;
-    background-color: rgb(5, 5, 165);
+.tituloNuevos {
+    text-align: center; 
+    margin-bottom: 20px; 
 }
 
 #preciosNuevos {
+    margin: 0 auto; 
+    width: 80%; 
+    max-width: 800px; 
+}
+
+.galeria-nuevos {
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: space-between; 
+}
+
+.tarjetaUsados {
+    display: flex;
+    flex: 0 1 calc(33.33% - 20px);
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
     align-items: center;
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
 }
 
-main table th,
-td {
-    background-color: rgb(243, 237, 237);
+.tarjetaUsados img {
+    width: 100%;
+    max-width: 300px; 
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px; 
 }
 
+.tarjetaUsados .contenidoTarjNuevos {
+    text-align: center;
+}
 
+.tarjetaUsados .botonTarjNuevos button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
 
-#desplegable {
-    width: 400px;
-    height: 30px;
-    position: initial;
+.tarjetaUsados .botonTarjNuevos button:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 767px) { 
+
+    .galeria-nuevos {
+        justify-content: center; 
+    }
+
+    .tarjetaUsados {
+        flex-basis: calc(50% - 20px); 
+    }
+}
+
+.tituloUs {
+    text-align: center; 
+    margin-bottom: 20px;
+}
+
+.contenedorTabla {
+    text-align: center; 
+    margin-bottom: 20px;
+}
+
+.contenedorTabla table {
+    margin: auto; 
+}
+
+.tarjetaUs {
+    display: inline-block;
+    vertical-align: top; 
+    box-sizing: border-box;
+    margin-bottom: 20px; 
+}
+
+.tarjetaUs img {
+    width: 100%; 
+    height: auto; 
+    display: block; 
+}
+
+.contenidoTarjUs,
+.botonTarjUs {
+    padding: 10px;
+}
+
+@media (max-width: 991px) {
+    .tarjetaUs {
+        width: calc(100% - 20px); 
+    }
 }

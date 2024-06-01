@@ -1,18 +1,12 @@
 .footerSection {
   background-color: rgb(14, 1, 107);
   width: 100%;
-  height: 400xp;
-  position: relative;
-  text-align: left;
-  padding: 80px 0;
-  display: flex;
-  padding-top: 20;
-  flex-direction: column-reverse;
-}
-.footerSection .mapaUbicacion {
-  width: auto;
   height: auto;
   position: relative;
+  text-align: left;
+  padding: 2% 0;
+  display: flex;
+  flex-direction: column-reverse;
 }
 .footerSection .footer-contenedor {
   max-width: 1200px;
@@ -23,15 +17,10 @@
   flex-wrap: wrap;
 }
 .footerSection .footer-contenedor .footer-row .footer-links {
-  width: 25%;
-  height: 0%;
+  width: 100%;
   padding: 15px;
-  margin-right: 50px;
-}
-.footerSection .footer-contenedor .footer-row .footer-links .social-link {
-  width: 25px;
-  height: auto;
-  margin-right: 20px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
 }
 .footerSection .footer-contenedor .footer-row .footer-links h4 {
   font-size: 20px;
@@ -48,17 +37,35 @@
 .footerSection .footer-contenedor .footer-row .footer-links h5 {
   color: #ffffff;
 }
+@media (min-width: 768px) {
+  .footerSection .footer-contenedor .footer-row .footer-links {
+    width: calc(25% - 30px);
+  }
+}
+.footerSection .footer-contenedor .mapaUbicacion {
+  width: 100%;
+  height: 300px;
+  margin-top: 20px;
+}
 
+@media (min-width: 768px) {
+  .mapaUbicacion {
+    width: 100%;
+    margin-top: 0;
+    order: 4;
+  }
+  .footer-links:nth-child(4) {
+    width: 50%;
+  }
+}
 header {
   width: 100%;
-  height: 600px;
+  height: 40rem;
+  background-position: 200%;
   background: #2c3e50;
-  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, rgba(36, 78, 125, 0.1647058824), rgba(44, 62, 80, 0.3254901961)), url(../imagenes/2008.avif);
   background: linear-gradient(to right, rgba(36, 78, 125, 0.1647058824), rgba(44, 62, 80, 0.568627451)), url(../imagenes/2008.avif);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background-size: cover;
-  background-attachment: fixed;
+  background-size: contain;
   position: relative;
 }
 header .textos-header {
@@ -119,7 +126,6 @@ nav {
 nav a {
   color: white;
   font-weight: 300;
-  /*mas ligera*/
   text-decoration: none;
   margin-right: 10px;
   columns: auto;
@@ -151,6 +157,14 @@ nav a:hover {
   box-sizing: border-box;
 }
 
+.row {
+  --bs-gutter-x: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
 .contenedor {
   padding: 60px 0;
   width: 90%;
@@ -166,20 +180,51 @@ a {
 
 .contenedor-sobre-nosotros {
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .contenedor-sobre-nosotros .imagen-about-us {
-  width: 80%;
-  max-width: 40rem;
+  flex: 1 1 40%;
+  max-width: 40%;
+}
+.contenedor-sobre-nosotros .imagen-about-us img {
+  width: 100%;
+  height: auto;
 }
 
 .contenedor-sobre-nosotros .contenido-textos {
-  width: 80%;
+  flex: 1 1 50%;
+  max-width: 50%;
+  text-align: justify;
 }
 
 .contenedor-sobre-nosotros .contenido-textos p {
   margin-bottom: 15px;
+}
+
+.titulo {
+  text-align: center;
+  color: #090000;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 991px) {
+  .contenedor-sobre-nosotros {
+    flex-direction: column;
+    text-align: center;
+  }
+  .contenedor-sobre-nosotros .imagen-about-us,
+  .contenedor-sobre-nosotros .contenido-textos {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+main {
+  background-color: rgba(255, 255, 255, 0);
 }
 
 .service-html {
@@ -244,7 +289,7 @@ a {
 
 @media (max-width: 991px) {
   .contenedor-sobre-nosotros {
-    display: block;
+    flex-direction: column;
     text-align: center;
   }
   .contenido-textos {
@@ -313,207 +358,261 @@ main {
   border-left: 1cm;
 }
 
-.titulo {
-  text-align: center;
-  position: inherit;
-  color: #090000;
-}
-
-taller {
+.taller {
   display: flex;
   justify-content: space-around;
 }
 
 .tarjteServicio {
-  width: 300;
-  height: 200;
-  flex: 50;
-  align-content: center;
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: auto;
+  align-content: center;
   background-color: rgba(187, 184, 228, 0.137254902);
   border: 0px solid #0d0000;
   border-radius: 8px;
   text-align: center;
-  margin: 15px;
-  max-width: 300px;
+  margin: 15px 0;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
-
-.contenidoTarjeta {
-  flex-grow: 1;
-  flex-shrink: 1;
+.tarjteServicio img {
+  width: 100%;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  object-fit: cover;
 }
-
-.botonTarjeta {
-  background-color: rgba(9, 1, 71, 0.51);
+.tarjteServicio .contenidoTarjeta {
+  padding: 15px;
+}
+.tarjteServicio .botonTarjeta {
   padding: 10px;
 }
 
-#noticias h2 {
-  text-align: center;
+@media (max-width: 991px) {
+  .row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
-#noticias .box {
-  margin-top: 50px;
-  display: flex;
-  flex-direction: row;
-  color: #000000;
-  background-color: rgba(46, 46, 127, 0.7254901961);
-}
-#noticias .box .imagenBox .imagenNoticias1 {
-  width: 100%;
-}
-
-.tituloNuevos {
-  color: white;
-}
-
-.tarjetaNuevos {
-  width: 300;
-  height: 200;
-  flex: 50;
-  align-content: center;
-  display: inline-flex;
-  flex-direction: column;
-  background-color: rgba(187, 184, 228, 0.137254902);
-  border: 0px solid #0d0000;
-  border-radius: 8px;
-  text-align: center;
-  margin: 15px;
-  max-width: 300px;
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-}
-.tarjetaNuevos .contenidoTarjNuevos {
-  flex-grow: 1;
-  flex-shrink: 1;
-}
-.tarjetaNuevos .botonTarjNuevos {
-  background-color: rgb(14, 1, 107);
-  padding: 1px;
-}
-
-.foto0km {
-  width: auto 50rem;
-  height: auto;
-}
-
-.tituloUsados {
-  color: white;
-}
-.tituloUsados h2 {
-  color: black;
-}
-
-.tarjetaUsados {
-  width: 300;
-  height: 200;
-  flex: 50;
-  align-content: center;
-  display: inline-flex;
-  flex-direction: column;
-  background-color: rgba(187, 184, 228, 0.137254902);
-  border: 0px solid #0d0000;
-  border-radius: 8px;
-  text-align: center;
-  margin: 15px;
-  max-width: 300px;
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-}
-.tarjetaUsados .contenidoTarjUsados {
-  flex-grow: 1;
-  flex-shrink: 1;
-}
-.tarjetaUsados .botonTarjUsados {
-  background-color: rgb(14, 1, 107);
-  padding: 1px;
-}
-
-.titulo-administracion {
-  color: rgb(0, 0, 0);
-  text-align: center;
-}
-
-.contenidoAdministracion {
-  color: rgb(0, 0, 0);
-  text-align: center;
-}
-
-.linkAdministracion {
-  text-align: center;
-  text-decoration-line: underline;
-  background-color: rgba(9, 1, 124, 0.7490196078);
-  border: 0px solid #f61b1b;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 30;
-}
-
 .contactanos {
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .contacto {
-  width: 300;
-  flex: 50;
-  display: flex;
-  flex-direction: column;
-  color: rgb(12, 12, 12);
-  border: 0px solid #0d0000;
-  border-radius: 8px;
-  text-align: center;
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+  max-width: 600px;
+  margin: auto;
 }
 
-.imagen1Service {
+.contacto label,
+.contacto input,
+.contacto select {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+input[type=checkbox] {
+  margin-right: 5px;
+}
+
+.contacto input,
+.contacto select {
   width: 100%;
+  padding: 8px;
+  border: 1px solid #3b35f4;
+  border-radius: 4px;
 }
 
-.tituloUsados {
-  text-align: center;
+.contacto button {
+  background-color: #007bff;
   color: white;
+  border: none;
+  padding: 10px 20px;
+  display: block;
+  margin: 20px auto;
 }
 
-.c {
-  background-color: rgb(0, 0, 0);
-  justify-content: center;
+.footerSection {
+  background-color: #333;
+  color: white;
+  padding: 2em 0;
+  text-align: center;
+}
+
+.footer-contenedor {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-row {
   display: flex;
-  margin: 30px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1em;
 }
 
-ul,
-ol {
-  list-style-type: none;
+.footer-links h4 {
+  margin-bottom: 1em;
 }
 
-a {
-  color: rgb(255, 255, 255);
+.footer-links p, .footer-links a {
+  margin: 0.5em 0;
+  color: white;
   text-decoration: none;
 }
 
-h1 {
-  text-align: center;
-  color: #000000;
+.footer-links a:hover {
+  text-decoration: underline;
 }
 
-main table {
-  align-items: center;
-  background-color: rgb(5, 5, 165);
+.mapaUbicacion iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+  border-radius: 10px;
+}
+
+#noticias {
+  padding: 2em 0;
+}
+
+#noticias .box {
+  display: flex;
+  gap: 1em;
+  margin-bottom: 2em;
+}
+
+#noticias .imagenBox img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+#noticias .detailBox h5 {
+  margin: 0 0 1em;
+}
+
+#noticias .detailBox p {
+  text-align: justify;
+}
+
+#noticias .detailBox a {
+  color: #0056b3;
+  text-decoration: none;
+}
+
+.tituloNuevos {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 #preciosNuevos {
+  margin: 0 auto;
+  width: 80%;
+  max-width: 800px;
+}
+
+.galeria-nuevos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.tarjetaUsados {
+  display: flex;
+  flex: 0 1 calc(33.33% - 20px);
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: auto;
   align-items: center;
+  background-color: #f4f4f4;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
 }
 
-main table th,
-td {
-  background-color: rgb(243, 237, 237);
+.tarjetaUsados img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
 
-#desplegable {
-  width: 400px;
-  height: 30px;
-  position: initial;
+.tarjetaUsados .contenidoTarjNuevos {
+  text-align: center;
+}
+
+.tarjetaUsados .botonTarjNuevos button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.tarjetaUsados .botonTarjNuevos button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 767px) {
+  .galeria-nuevos {
+    justify-content: center;
+  }
+  .tarjetaUsados {
+    flex-basis: calc(50% - 20px);
+  }
+}
+.tituloUs {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.contenedorTabla {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.contenedorTabla table {
+  margin: auto;
+}
+
+.tarjetaUs {
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.tarjetaUs img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.contenidoTarjUs,
+.botonTarjUs {
+  padding: 10px;
+}
+
+@media (max-width: 991px) {
+  .tarjetaUs {
+    width: calc(100% - 20px);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
